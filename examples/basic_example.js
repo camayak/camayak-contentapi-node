@@ -44,10 +44,10 @@ let camayak = new CamayakContentAPI({
 		});
 	},
 	update: function(webhook, content) {
-		// Create new Post wherever
+		// Update new Post wherever using content.published_id
 		// 
 		let handler = new MyCustomIntegration();
-		handler.publish(content, function(error, response){
+		handler.update(content, function(error, response){
 			if (error) {
 				return webhook.fail(error);
 			};
