@@ -1,0 +1,23 @@
+{
+  "name": "camayak-contentapi",
+  "version": "0.0.1",
+  "description": "An SDK for creating publishing integrations using the Camayak Content Publishing API",
+  "main": "index.js",
+  "engines": ">=4.2.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Camayak",
+    "Publishing",
+    "CMS",
+    "Workflow"
+  ],
+  "author": "Edward Smith",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "request": "^2.70.0"
+  }
+}
