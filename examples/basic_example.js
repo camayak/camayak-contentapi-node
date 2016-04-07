@@ -1,7 +1,7 @@
 "use strict"
 const CamayakContentAPI = require('./lib/camayak_contentapi');
 
-const api_key 		= process.env.CAMAYAK_API_KEY 		|| "my api key from the Camayak publishing destination";
+const api_key       = process.env.CAMAYAK_API_KEY       || "my api key from the Camayak publishing destination";
 const shared_secret = process.env.CAMAYAK_SHARED_SECRET || "my shared secret from the Camayak publishing destination";
 
 // Create an instance of the Camayak Content API SDK.
@@ -27,54 +27,54 @@ const shared_secret = process.env.CAMAYAK_SHARED_SECRET || "my shared secret fro
 // In the event of failure, Camayak will retry the webhook.
 
 let camayak = new CamayakContentAPI({
-	api_key: api_key,
-	shared_secret: shared_secret,
-	publish: function(webhook, content) {
-		// Create new Post wherever
-		// 
-		let handler = new MyCustomIntegration();
-		handler.publish(content, function(error, response){
-			if (error) {
-				return webhook.fail(error);
-			};
-			return webhook.succeed({
-				published_id: response.published_id,
-				published_url: response.published_url
-			});
-		});
-	},
-	update: function(webhook, content) {
-		// Update new Post wherever using content.published_id
-		// 
-		let handler = new MyCustomIntegration();
-		handler.update(content, function(error, response){
-			if (error) {
-				return webhook.fail(error);
-			};
-			return webhook.succeed({
-				published_id: response.published_id,
-				published_url: response.published_url
-			});
-		});
-	},
-	retract: function(webhook, content) {
-		// Retract Post using content.published_id
-		//
-		let handler = new MyCustomIntegration();
-		handler.retract(content, function(error, response){
-			if (error) {
-				return webhook.fail(error);
-			};
-			return webhook.succeed({
-				published_id: response.published_id,
-				published_url: response.published_url
-			});
-		})
-	},
-	error: function(error, webhook) {
-		// Handle unexpected errors in the Camayak service
-		webhook.fail(error);
-	}
+    api_key: api_key,
+    shared_secret: shared_secret,
+    publish: function(webhook, content) {
+        // Create new Post wherever
+        // 
+        let handler = new MyCustomIntegration();
+        handler.publish(content, function(error, response){
+            if (error) {
+                return webhook.fail(error);
+            };
+            return webhook.succeed({
+                published_id: response.published_id,
+                published_url: response.published_url
+            });
+        });
+    },
+    update: function(webhook, content) {
+        // Update new Post wherever using content.published_id
+        // 
+        let handler = new MyCustomIntegration();
+        handler.update(content, function(error, response){
+            if (error) {
+                return webhook.fail(error);
+            };
+            return webhook.succeed({
+                published_id: response.published_id,
+                published_url: response.published_url
+            });
+        });
+    },
+    retract: function(webhook, content) {
+        // Retract Post using content.published_id
+        //
+        let handler = new MyCustomIntegration();
+        handler.retract(content, function(error, response){
+            if (error) {
+                return webhook.fail(error);
+            };
+            return webhook.succeed({
+                published_id: response.published_id,
+                published_url: response.published_url
+            });
+        })
+    },
+    error: function(error, webhook) {
+        // Handle unexpected errors in the Camayak service
+        webhook.fail(error);
+    }
 });
 
 // Start listening for webhooks
