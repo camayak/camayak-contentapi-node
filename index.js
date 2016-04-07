@@ -1,1 +1,1 @@
-module.exports = require('../lib/camayak_contentapi');
+module.exports = require('./lib/camayak_contentapi');
