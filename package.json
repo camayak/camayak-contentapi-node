@@ -2,6 +2,7 @@
   "name": "camayak-contentapi",
   "version": "0.0.1",
   "description": "An SDK for creating publishing integrations using the Camayak Content Publishing API",
+  "repository": "https://github.com/camayak/camayak-contentapi-node",
   "main": "index.js",
   "engines": ">=4.2.0",
   "scripts": {
